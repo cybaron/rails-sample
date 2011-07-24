@@ -1,0 +1,30 @@
+form {
+  width: 540px;
+  margin: 5px auto;
+  background-color: #cff;
+  padding: 9px;
+  border: solid 1px #ccc;
+}
+
+form ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+form li {
+  margin: 0;
+  padding: 0;
+}
+
+form label {
+  display: block;
+  width: 100px;
+  float: left;
+  padding-top: 2em;
+}
+
+form input[type=submit] {
+  display: block;
+  margin: 5px 5px 5px auto;
+}
