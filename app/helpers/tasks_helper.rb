@@ -1,3 +1,4 @@
+# coding: utf-8
 module TasksHelper
   def navitation_links
     items = []
