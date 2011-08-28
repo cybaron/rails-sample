@@ -3,19 +3,23 @@ class TasksController < ApplicationController
 
   def index
     @task = Task.new
-    @tasks = Task.undone.paginate(:page => params[:page], :per_page => 10)
+    @tasks = current_user.tasks.undone.paginate(:page => params[:page], :per_page => 10)
   end
 
   def done
     @task = Task.new
-    @tasks = Task.done.paginate(:page => params[:page], :per_page => 10)
+    @tasks = current_user.tasks.done.paginate(:page => params[:page], :per_page => 10)
     render :action => 'index'
   end
 
   def create
     @task = Task.new(params[:task])
-    @task.save
-    redirect_to :tasks
+    @task.user = current_user
+    if @task.save
+      redirect_to :tasks
+    else
+      @tasks = current_user.tasks.undone.paginate(:page => params[:page], per_page => 10)
+      render :action => 'index'
   end
 
   def finish

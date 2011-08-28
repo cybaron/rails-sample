@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(:version => 20110724094843) do
 
   create_table "tasks", :force => true do |t|
+    t.integer  "user_id"
     t.string   "name"
     t.date     "due_date"
     t.boolean  "done",       :default => false, :null => false
