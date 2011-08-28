@@ -20,6 +20,7 @@ class TasksController < ApplicationController
     else
       @tasks = current_user.tasks.undone.paginate(:page => params[:page], per_page => 10)
       render :action => 'index'
+    end
   end
 
   def finish
